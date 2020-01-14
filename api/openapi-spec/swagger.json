@@ -281,7 +281,7 @@
           "type": "string"
         },
         "failedJobsHistoryLimit": {
-          "description": "FailedJobsHistoryLimit is the number of successful jobs to be kept at a time",
+          "description": "FailedJobsHistoryLimit is the number of failed jobs to be kept at a time",
           "type": "integer",
           "format": "int32"
         },
@@ -302,6 +302,10 @@
         "suspend": {
           "description": "Suspend is a flag that will stop new CronWorkflows from running if set to true",
           "type": "boolean"
+        },
+        "timezone": {
+          "description": "A timezone into which the Workflow has to be scheduled",
+          "type": "string"
         },
         "workflowSpec": {
           "description": "WorkflowSpec is the spec of the workflow to be run",
