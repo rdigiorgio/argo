@@ -113,6 +113,7 @@ export class CronWorkflowList extends BasePage<RouteComponentProps<any>, State> 
                         <div className='columns small-3'>NAME</div>
                         <div className='columns small-3'>NAMESPACE</div>
                         <div className='columns small-2'>SCHEDULE</div>
+                        <div className='columns small-2'>TIMEZONE</div>
                         <div className='columns small-3'>CREATED</div>
                     </div>
                     {this.state.cronWorkflows.map(w => (
@@ -126,6 +127,7 @@ export class CronWorkflowList extends BasePage<RouteComponentProps<any>, State> 
                             <div className='columns small-3'>{w.metadata.name}</div>
                             <div className='columns small-3'>{w.metadata.namespace}</div>
                             <div className='columns small-2'>{w.spec.schedule}</div>
+                            <div className='columns small-2'>{w.spec.timezone}</div>
                             <div className='columns small-3'>
                                 <Timestamp date={w.metadata.creationTimestamp} />
                             </div>

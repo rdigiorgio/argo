@@ -12,6 +12,7 @@ export interface CronWorkflow {
 export interface CronWorkflowSpec {
     workflowSpec: WorkflowSpec;
     schedule: string;
+    timezone: string;
     concurrencyPolicy?: string;
     suspend?: boolean;
     startingDeadlineSeconds?: number;

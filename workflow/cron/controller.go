@@ -142,7 +142,13 @@ func (cc *Controller) processNextCronItem() bool {
 		delete(cc.nameEntryIDMap, key.(string))
 	}
 
-	entryId, err := cc.cron.AddJob(cronWf.Spec.Schedule, cronWorkflowOperationCtx)
+	var spec string
+	if cronWf.Spec.Timezone != "" {
+		spec = "CRON_TZ=" + cronWf.Spec.Timezone + " " + cronWf.Spec.Schedule
+	} else {
+		spec = cronWf.Spec.Schedule
+	}
+	entryId, err := cc.cron.AddJob(spec, cronWorkflowOperationCtx)
 	if err != nil {
 		log.Errorf("could not schedule CronWorkflow: %s", err)
 		return true

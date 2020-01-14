@@ -29,6 +29,8 @@ type CronWorkflowSpec struct {
 	WorkflowSpec WorkflowSpec `json:"workflowSpec" protobuf:"bytes,1,opt,name=workflowSpec,casttype=WorkflowSpec"`
 	// Schedule is a schedule to run the Workflow in Cron format
 	Schedule string `json:"schedule" protobuf:"bytes,2,opt,name=schedule"`
+	// A timezone into which the Workflow has to be scheduled
+	Timezone string `json:"timezone" protobuf:"bytes,2,opt,name=timezone"`
 	// ConcurrencyPolicy is the K8s-style concurrency policy that will be used
 	ConcurrencyPolicy ConcurrencyPolicy `json:"concurrencyPolicy,omitempty" protobuf:"bytes,3,opt,name=concurrencyPolicy,casttype=ConcurrencyPolicy"`
 	// Suspend is a flag that will stop new CronWorkflows from running if set to true
@@ -38,7 +40,7 @@ type CronWorkflowSpec struct {
 	StartingDeadlineSeconds *int64 `json:"startingDeadlineSeconds,omitempty" protobuf:"varint,5,opt,name=startingDeadlineSeconds"`
 	// SuccessfulJobsHistoryLimit is the number of successful jobs to be kept at a time
 	SuccessfulJobsHistoryLimit *int32 `json:"successfulJobsHistoryLimit,omitempty" protobuf:"varint,6,opt,name=successfulJobsHistoryLimit"`
-	// FailedJobsHistoryLimit is the number of successful jobs to be kept at a time
+	// FailedJobsHistoryLimit is the number of failed jobs to be kept at a time
 	FailedJobsHistoryLimit *int32 `json:"failedJobsHistoryLimit,omitempty" protobuf:"varint,7,opt,name=failedJobsHistoryLimit"`
 }
 

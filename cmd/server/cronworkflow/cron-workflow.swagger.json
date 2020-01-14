@@ -3009,6 +3009,10 @@
           "type": "string",
           "title": "Schedule is a schedule to run the Workflow in Cron format"
         },
+        "timezone": {
+          "description": "A timezone into which the Workflow has to be scheduled",
+          "type": "string"
+        },
         "concurrencyPolicy": {
           "type": "string",
           "title": "ConcurrencyPolicy is the K8s-style concurrency policy that will be used"
@@ -3031,7 +3035,7 @@
         "failedJobsHistoryLimit": {
           "type": "integer",
           "format": "int32",
-          "title": "FailedJobsHistoryLimit is the number of successful jobs to be kept at a time"
+          "title": "FailedJobsHistoryLimit is the number of failed jobs to be kept at a time"
         }
       }
     },
